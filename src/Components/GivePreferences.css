@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap');
+
+.detailBanner{
+    text-align: center;
+    padding: 20px;
+    background-color: red;
+}
+
+.AddCourses{
+    height: fit-content;
+    width: 70vw;
+    border-radius: 30px;
+    margin: 5vw;
+    margin-left: 13vw;
+    padding: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

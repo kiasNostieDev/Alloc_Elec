@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap');
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0 5px 5px 0;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #a7a4a5;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.AddCourses{
+    height: fit-content;
+    width: 70vw;
+    border-radius: 30px;
+    margin: 5vw;
+    margin-left: 13vw;
+    padding: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.CourseList{
+    width: 86vw;
+    height: fit-content;
+    max-height: 80vh;
+    border-radius:2vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding: 1vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-top: 5vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+}
+
+.consoleListItem{
+    width: 98%;
+    padding: 5px 1%;
+}
+
+.cliName{
+    font-size: 14pt;
+    margin-top: 10px;
+    transition: ease-in-out 0.3s;
+    font-family: 'Mulish', sans-serif;
+    width: 86%;
+    float: left;
+}
+
+.cliName:hover{
+    color: red;
+}
+
+.ListOfClasses{
+    max-height: 400px;
+    min-height: fit-content;
+    border-radius:2vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 5vw;
+    padding: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+}
+
+.detailBanner{
+    text-align: center;
+    padding: 20px;
+    background-color: red;
+}
+
+.DataPreferences{
+    width: 95%;
+    border-radius: 20px;
+    border: solid 0.4px;
+    color: black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 2.5%;
+}
