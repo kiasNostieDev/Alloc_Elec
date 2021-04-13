@@ -74,10 +74,10 @@ export default function GivePreferences() {
     function NavBar() {
         return (
         <div className='detailBanner'>
-            <Typography style={{fontFamily: 'Raleway', color: 'white'}} variant="h3" className={classes.title}>
+            <Typography style={{fontFamily: 'Zen Dots', color: 'white'}} variant="h3" className={classes.title}>
                 {userData.name}
             </Typography>
-            <Typography style={{fontFamily: 'Raleway'}} variant="h3" className={classes.title}>
+            <Typography style={{fontFamily: 'Zen Dots'}} variant="h3" className={classes.title}>
                 {userData.register}
             </Typography>
         </div>

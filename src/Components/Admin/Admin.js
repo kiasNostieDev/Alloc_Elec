@@ -25,7 +25,7 @@ export default function Admin() {
     return (
         <div>
             <div className='detailBanner'>
-                <Typography style={{fontFamily: 'Raleway', color: 'white'}} variant="h3" className={classes.title}>Admin Login</Typography>
+                <Typography style={{fontFamily: 'Zen Dots', color: 'white'}} variant="h3" className={classes.title}>Admin Login</Typography>
             </div>
             <div><img className='imgHolder' alt='logo' src={cover}/></div>
             <FormControl style={{ width: '90%', margin: '5%'}} variant="outlined">

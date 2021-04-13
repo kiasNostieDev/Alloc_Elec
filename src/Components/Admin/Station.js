@@ -502,9 +502,9 @@ export default function Station() {
             return (
                 <div className='ConsoleContents'>
                    <div className='detailBanner'>
-                        <Typography style={{fontFamily: 'Raleway', color: 'white'}} variant="h3" className={classes.title}>Admin Console</Typography>
+                        <Typography style={{fontFamily: 'Zen Dots', color: 'white'}} variant="h3" className={classes.title}>Admin Console</Typography>
                     </div>
-                    <Typography style={{fontFamily: 'Raleway', marginTop: '30px', textAlign: 'center'}} variant="h3" className={classes.title}>Classes and Preferences</Typography>
+                    <Typography style={{fontFamily: 'Zen Dots', marginTop: '30px', textAlign: 'center'}} variant="h3" className={classes.title}>Classes and Preferences</Typography>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>3rd Year A</Typography>
                         <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h5'>{"Students Added: " + keyList.ta.length}</Typography>
@@ -710,7 +710,7 @@ export default function Station() {
                         </Button></Link>
                         <StudentList item={keyList.fe}/>
                     </div>
-                    <Typography style={{fontFamily: 'Raleway', textAlign: 'center'}} variant="h3" className={classes.title}>Course Descriptions</Typography>
+                    <Typography style={{fontFamily: 'Zen Dots', textAlign: 'center'}} variant="h3" className={classes.title}>Course Descriptions</Typography>
                     <div className='CourseList'>
                         <CourseList courseList={course3List} heading='3rd Year Electives List'/>
                     </div>

@@ -68,10 +68,15 @@ function App() {
       <AppBar position="static">
         <Toolbar style={{backgroundColor: 'red'}}>
           <Avatar alt="Profile Picture" src='./psnalogo.png'/>
-          <Typography style={{fontFamily: 'Raleway', marginLeft: '30px'}} variant="h4" className={classes.title}>
+          <Typography style={{fontFamily: 'Zen Dots', marginLeft: '30px'}} variant="h4" className={classes.title}>
             Electives
           </Typography>
           <Link to='/admin' style={{textDecoration: 'none', color: 'white'}}><Button color="inherit">Admin</Button></Link>
+        </Toolbar>
+        <Toolbar style={{backgroundColor: 'red'}}>
+          <Typography style={{fontFamily: 'Zen Dots'}} variant="h6" className={classes.title}>
+            Computer Science Department, PSNACET
+          </Typography>
         </Toolbar>
       </AppBar>
     )
