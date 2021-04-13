@@ -223,10 +223,10 @@ export default function PrintSection(props) {
                     secyear = "3rd Year E"
                 }
                 return (
-                    <div className='ListOfClasses'>
+                    <div className='TableList'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{secyear}</Typography>
                         <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h5'>{"Students Added: " + tItem.length}</Typography>
-                        <div className='DataPreferences'>
+                        <div className='TableData'>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + tCount[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + tCount[1]}</Typography>
                         </div>
