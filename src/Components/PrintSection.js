@@ -59,7 +59,7 @@ export default function PrintSection(props) {
     function load() {
 
         let studentListInit = [], ta = [], tb = [], tc = [], td = [], te = [], fa = [], fb = [], fc = [], fd = [], fe = []
-        let tac = [0,0], tbc = [0,0], tcc = [0,0], tdc = [0,0], tec = [0,0], fac = [0,0,0,0,0,0,0,0,0], fbc = [0,0,0,0,0,0,0,0,0], fcc = [0,0,0,0,0,0,0,0,0], fdc = [0,0,0,0,0,0,0,0,0], fec = [0,0,0,0,0,0,0,0,0]
+        let tac = [0,0,0], tbc = [0,0,0], tcc = [0,0,0], tdc = [0,0,0], tec = [0,0,0], fac = [0,0,0,0,0,0,0,0,0], fbc = [0,0,0,0,0,0,0,0,0], fcc = [0,0,0,0,0,0,0,0,0], fdc = [0,0,0,0,0,0,0,0,0], fec = [0,0,0,0,0,0,0,0,0]
 
         firebase.database().ref('StudentList/').once('value', snap => {
             snap.forEach(item => {
@@ -69,26 +69,31 @@ export default function PrintSection(props) {
                         ta.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tac[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tac[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tac[2] += 1
                     }
                     if (item.val().section === 'B') {
                         tb.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tbc[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tbc[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tbc[2] += 1
                     }
                     if (item.val().section === 'C') {
                         tc.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tcc[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tcc[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tcc[2] += 1
                     }
                     if (item.val().section === 'D') {
                         td.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tdc[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tdc[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tdc[2] += 1
                     }
                     if (item.val().section === 'E') {
                         te.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tec[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tec[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tec[2] += 1
                     }
                 } else if (item.val().year === '4') {
                     if (item.val().section === 'A') {
@@ -229,6 +234,7 @@ export default function PrintSection(props) {
                         <div className='TableData'>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + tCount[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + tCount[1]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + tCount[2]}</Typography>
                         </div>
                         <StudentList item={tItem}/>
                     </div>
@@ -238,7 +244,7 @@ export default function PrintSection(props) {
                 if (sectionAndYear === 'fa') {
                     tItem = keyList.fa
                     tCount = countList.fa
-                    secyear = "3rd Year A"
+                    secyear = "4th Year A"
                 }
                 if (sectionAndYear === 'fb') {
                     tItem = keyList.fb
@@ -287,7 +293,7 @@ export default function PrintSection(props) {
             <div className='DetailsCol'>
                 <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h5'>PSNA College Of Engineering and Technology</Typography>
                 <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h6'>Computer Science And Engineering Department</Typography>
-                <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h6'>Academic year: 2020-2021 / ODD Semester</Typography>
+                <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h6'>Academic year: 2021-2022 / ODD Semester</Typography>
             </div>
         )
     }

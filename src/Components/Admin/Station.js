@@ -180,7 +180,7 @@ export default function Station() {
         setCourse4iiiList(courseList4iiiInit)
 
         let studentListInit = [], ta = [], tb = [], tc = [], td = [], te = [], fa = [], fb = [], fc = [], fd = [], fe = []
-        let tac = [0,0], tbc = [0,0], tcc = [0,0], tdc = [0,0], tec = [0,0], fac = [0,0,0,0,0,0,0,0,0], fbc = [0,0,0,0,0,0,0,0,0], fcc = [0,0,0,0,0,0,0,0,0], fdc = [0,0,0,0,0,0,0,0,0], fec = [0,0,0,0,0,0,0,0,0]
+        let tac = [0,0,0], tbc = [0,0,0], tcc = [0,0,0], tdc = [0,0,0], tec = [0,0,0], fac = [0,0,0,0,0,0,0,0,0], fbc = [0,0,0,0,0,0,0,0,0], fcc = [0,0,0,0,0,0,0,0,0], fdc = [0,0,0,0,0,0,0,0,0], fec = [0,0,0,0,0,0,0,0,0]
 
         firebase.database().ref('StudentList/').once('value', snap => {
             snap.forEach(item => {
@@ -189,27 +189,32 @@ export default function Station() {
                     if (item.val().section === 'A') {
                         ta.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tac[0]+=1
-                        if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tac[1]+=1
+                        if (item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory") tac[1] += 1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tac[2] += 1
                     }
                     if (item.val().section === 'B') {
                         tb.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tbc[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tbc[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tbc[2] += 1
                     }
                     if (item.val().section === 'C') {
                         tc.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tcc[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tcc[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tcc[2] += 1
                     }
                     if (item.val().section === 'D') {
                         td.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tdc[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tdc[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tdc[2] += 1
                     }
                     if (item.val().section === 'E') {
                         te.push(item.val())
                         if(item.val().selection === "Vth-Sem-OBT552 Basics of BioInformatics-Theory")tec[0]+=1
                         if(item.val().selection === "Vth-Sem-OMD553 TeleHealth Technology-Theory")tec[1]+=1
+                        if (item.val().selection === "Vth-Sem-OEC552 - Soft Computing-Theory") tec[2] += 1
                     }
                 } else if (item.val().year === '4') {
                     if (item.val().section === 'A') {
@@ -511,6 +516,7 @@ export default function Station() {
                         <div className='DataPreferences'>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.ta[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.ta[1]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.ta[2]}</Typography>
                         </div>
                         <Link style={{textDecoration: 'none'}} to={'/generateDocs/ta'}><Button 
                             variant="contained"
@@ -528,6 +534,7 @@ export default function Station() {
                         <div className='DataPreferences'>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.tb[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.tb[1]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.tb[2]}</Typography>
                         </div>
                         <Link style={{textDecoration: 'none'}} to={'/generateDocs/tb'}><Button 
                             variant="contained"
@@ -545,6 +552,7 @@ export default function Station() {
                         <div className='DataPreferences'>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.tc[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.tc[1]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.tc[2]}</Typography>
                         </div>
                         <Link style={{textDecoration: 'none'}} to={'/generateDocs/tc'}><Button 
                             variant="contained"
@@ -562,6 +570,7 @@ export default function Station() {
                         <div className='DataPreferences'>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.td[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.td[1]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.td[2]}</Typography>
                         </div>
                         <Link style={{textDecoration: 'none'}} to={'/generateDocs/td'}><Button 
                             variant="contained"
@@ -579,6 +588,7 @@ export default function Station() {
                         <div className='DataPreferences'>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.te[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.te[1]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.te[2]}</Typography>
                         </div>
                         <Link style={{textDecoration: 'none'}} to={'/generateDocs/te'}><Button 
                             variant="contained"
