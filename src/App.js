@@ -158,14 +158,11 @@ function App() {
               year: yearS,
               section: secS,
             }
-            firebase.auth().createUserWithEmailAndPassword(emailS, "StrongPasswordAlways")
-              .then((userCredential) => {
-                firebase.database().ref('StudentList/').child(userData.email.split('.').join("")).set(userData).then(val => {
-                    localStorage.setItem("id", emailS.split('.').join(""))
-                    history.push('/prefersection')
-                    window.location.reload()
-                })
-              })
+            firebase.database().ref('StudentList/').child(emailS.split('.').join("")).set(userData).then(val => {
+                localStorage.setItem("id", emailS.split('.').join(""))
+                history.push('/prefersection')
+                window.location.reload()
+            })
           }}
           variant="contained"
           size="medium"

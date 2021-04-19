@@ -285,22 +285,51 @@ export default function Station() {
         setIsLoading('0')
     }
 
+
     function StudentList(props) {
+
+        function Header() {
+            if (props.year === "3") {
+                return (
+                    <TableRow>
+                        <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Name</TableCell>
+                        <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Register</TableCell>
+                        <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Open Elective 1</TableCell>
+                    </TableRow>
+                )
+            } else if (props.year === "4") {
+                return (
+                    <TableRow>
+                        <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Name</TableCell>
+                        <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Register</TableCell>
+                        <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Open Elective 2 </TableCell>
+                        <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Professional Elective 2</TableCell>
+                        <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Professional Elective 3</TableCell>
+                    </TableRow>
+                )
+            }
+        }
+    
         return (
             <div className='StudentList'>
                 <Table>
                 <TableContainer component={Paper}>
                     <TableHead>
-                        <TableRow>
-                            <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Name</TableCell>
-                            <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Register</TableCell>
-                            <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Selected List</TableCell>
-                        </TableRow>
+                    <Header />
                     </TableHead>{
                         props.item.map(stu => {
                             let selectedList = ""
-                            if (stu.year === '4') selectedList = stu.selection1 + ", " + stu.selection2 + ", " + stu.selection3
-                            else selectedList = stu.selection
+                            if (stu.year === '4') {
+                                return (
+                                    <TableBody>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.name}</TableCell>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.register}</TableCell>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.selection1}</TableCell>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.selection2}</TableCell>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.selection3}</TableCell>
+                                    </TableBody>
+                                )
+                            } else selectedList = stu.selection
                             return (
                                 <TableBody>
                                     <TableCell style={{fontFamily: 'Mulish'}}>{stu.name}</TableCell>
@@ -514,6 +543,7 @@ export default function Station() {
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>3rd Year A</Typography>
                         <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h5'>{"Students Added: " + keyList.ta.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.ta[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.ta[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.ta[2]}</Typography>
@@ -526,12 +556,13 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.ta}/>
+                        <StudentList year="3" item={keyList.ta}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>3rd Year B</Typography>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{"Students Added: " + keyList.tb.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.tb[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.tb[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.tb[2]}</Typography>
@@ -544,12 +575,13 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.tb}/>
+                        <StudentList year="3" item={keyList.tb}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>3rd Year C</Typography>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{"Students Added: " + keyList.tc.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.tc[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.tc[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.tc[2]}</Typography>
@@ -562,12 +594,13 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.tc}/>
+                        <StudentList year="3" item={keyList.tc}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>3rd Year D</Typography>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{"Students Added: " + keyList.td.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.td[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.td[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.td[2]}</Typography>
@@ -580,12 +613,13 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.td}/>
+                        <StudentList year="3" item={keyList.td}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>3rd Year E</Typography>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{"Students Added: " + keyList.te.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + countList.te[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + countList.te[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + countList.te[2]}</Typography>
@@ -598,18 +632,21 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.te}/>
+                        <StudentList year="3" item={keyList.te}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>4th Year A</Typography>
                         <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h5'>{"Students Added: " + keyList.fa.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OBM752 Hospital Management-Theory\' Prefered Count: " + countList.fa[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OEC754 Medical Electronics-Theory\' Prefered Count: " + countList.fa[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OIE751 Robotics-Theory\' Prefered Count: " + countList.fa[2]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8081 Internet of Things-Theory\' Prefered Count: " + countList.fa[3]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8091 Big Data Analytics-Theory\' Prefered Count: " + countList.fa[4]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8092 Computer Graphics and Multimedia-Theory\' Prefered Count: " + countList.fa[5]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8079 Human Computer Interaction-Theory\' Prefered Count: " + countList.fa[6]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8083 Multi-Core Architectures and Programming-Theory\' Prefered Count: " + countList.fa[7]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8088 Wireless Adhoc and Sensor Networks-Theory\' Prefered Count: " + countList.fa[8]}</Typography>
@@ -622,18 +659,21 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.fa}/>
+                        <StudentList year="4" item={keyList.fa}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>4th Year B</Typography>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{"Students Added: " + keyList.fb.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OBM752 Hospital Management-Theory\' Prefered Count: " + countList.fb[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OEC754 Medical Electronics-Theory\' Prefered Count: " + countList.fb[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OIE751 Robotics-Theory\' Prefered Count: " + countList.fb[2]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8081 Internet of Things-Theory\' Prefered Count: " + countList.fb[3]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8091 Big Data Analytics-Theory\' Prefered Count: " + countList.fb[4]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8092 Computer Graphics and Multimedia-Theory\' Prefered Count: " + countList.fb[5]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8079 Human Computer Interaction-Theory\' Prefered Count: " + countList.fb[6]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8083 Multi-Core Architectures and Programming-Theory\' Prefered Count: " + countList.fb[7]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8088 Wireless Adhoc and Sensor Networks-Theory\' Prefered Count: " + countList.fb[8]}</Typography>
@@ -646,18 +686,21 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.fb}/>
+                        <StudentList year="4" item={keyList.fb}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>4th Year C</Typography>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{"Students Added: " + keyList.fc.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OBM752 Hospital Management-Theory\' Prefered Count: " + countList.fc[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OEC754 Medical Electronics-Theory\' Prefered Count: " + countList.fc[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OIE751 Robotics-Theory\' Prefered Count: " + countList.fc[2]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8081 Internet of Things-Theory\' Prefered Count: " + countList.fc[3]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8091 Big Data Analytics-Theory\' Prefered Count: " + countList.fc[4]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8092 Computer Graphics and Multimedia-Theory\' Prefered Count: " + countList.fc[5]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8079 Human Computer Interaction-Theory\' Prefered Count: " + countList.fc[6]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8083 Multi-Core Architectures and Programming-Theory\' Prefered Count: " + countList.fc[7]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8088 Wireless Adhoc and Sensor Networks-Theory\' Prefered Count: " + countList.fc[8]}</Typography>
@@ -670,18 +713,21 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.fc}/>
+                        <StudentList year="4" item={keyList.fc}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>4th Year D</Typography>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{"Students Added: " + keyList.fd.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OBM752 Hospital Management-Theory\' Prefered Count: " + countList.fd[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OEC754 Medical Electronics-Theory\' Prefered Count: " + countList.fd[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OIE751 Robotics-Theory\' Prefered Count: " + countList.fd[2]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8081 Internet of Things-Theory\' Prefered Count: " + countList.fd[3]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8091 Big Data Analytics-Theory\' Prefered Count: " + countList.fd[4]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8092 Computer Graphics and Multimedia-Theory\' Prefered Count: " + countList.fd[5]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8079 Human Computer Interaction-Theory\' Prefered Count: " + countList.fd[6]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8083 Multi-Core Architectures and Programming-Theory\' Prefered Count: " + countList.fd[7]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8088 Wireless Adhoc and Sensor Networks-Theory\' Prefered Count: " + countList.fd[8]}</Typography>
@@ -694,18 +740,21 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.fd}/>
+                        <StudentList year="4" item={keyList.fd}/>
                     </div>
                     <div className='ListOfClasses'>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>4th Year E</Typography>
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{"Students Added: " + keyList.fe.length}</Typography>
                         <div className='DataPreferences'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OBM752 Hospital Management-Theory\' Prefered Count: " + countList.fe[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OEC754 Medical Electronics-Theory\' Prefered Count: " + countList.fe[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-OIE751 Robotics-Theory\' Prefered Count: " + countList.fe[2]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8081 Internet of Things-Theory\' Prefered Count: " + countList.fe[3]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8091 Big Data Analytics-Theory\' Prefered Count: " + countList.fe[4]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8092 Computer Graphics and Multimedia-Theory\' Prefered Count: " + countList.fe[5]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8079 Human Computer Interaction-Theory\' Prefered Count: " + countList.fe[6]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8083 Multi-Core Architectures and Programming-Theory\' Prefered Count: " + countList.fe[7]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '15pt'}}>{"\'VII-CS8088 Wireless Adhoc and Sensor Networks-Theory\' Prefered Count: " + countList.fe[8]}</Typography>
@@ -718,7 +767,7 @@ export default function Station() {
                         >
                             Generete PDF
                         </Button></Link>
-                        <StudentList item={keyList.fe}/>
+                        <StudentList year="4" item={keyList.fe}/>
                     </div>
                     <Typography style={{fontFamily: 'Zen Dots', textAlign: 'center'}} variant="h3" className={classes.title}>Course Descriptions</Typography>
                     <div className='CourseList'>

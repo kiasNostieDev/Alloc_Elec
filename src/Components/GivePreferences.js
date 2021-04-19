@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
       flexGrow: 1,
+      // eslint-disable-next-line no-useless-computed-key
+      ['@media (max-width:400px)']: {
+          fontSize: '10pt'
+      }
     },
 }));
   
@@ -27,7 +31,7 @@ export default function GivePreferences() {
     const [course4iiList, setCourse4iiList] = useState([])
     const [course4iiiList, setCourse4iiiList] = useState([])
     const [isLoading, setIsLoading] = useState('1')
-    let i3, i4, ii4, iii4
+    let i3="-1", i4="-1", ii4="-1", iii4="-1"
     const [userData, setUserData] = useState({
         'name': '',
         'email': '',
@@ -74,10 +78,10 @@ export default function GivePreferences() {
     function NavBar() {
         return (
         <div className='detailBanner'>
-            <Typography style={{fontFamily: 'Zen Dots', color: 'white'}} variant="h3" className={classes.title}>
+            <Typography style={{fontFamily: 'Zen Dots', color: 'white', fontSize: '20pt'}} className={classes.title}>
                 {userData.name}
             </Typography>
-            <Typography style={{fontFamily: 'Zen Dots'}} variant="h3" className={classes.title}>
+            <Typography style={{fontFamily: 'Zen Dots', fontSize: '20pt'}} className={classes.title}>
                 {userData.register}
             </Typography>
         </div>
@@ -196,15 +200,21 @@ export default function GivePreferences() {
                 style={{ backgroundColor: 'red', color: 'white', width: '80vw', marginLeft: '10vw', marginBottom: '30px' }}
                 onClick={() => {
                     if (userData.year === '3') {
+                        if (i3 === "-1") {
+                            alert("Select a course! Don't Leave Empty")
+                            window.location.reload()
+                        }
                         const selectedData = {
                             oe1: i3
                         }
-                        firebase.database().ref('StudentList/').child(id).child('selection').set(selectedData.oe1)
-                        firebase.database().ref('SelectedList3/').child(id).set(selectedData).then(ret => {
-                            firebase.database().ref('SelectCount/three/').child(selectedData.oe1.split('.').join("")).push(id)
+                        firebase.database().ref('StudentList/').child(id).child('selection').set(selectedData.oe1).then(ret => {
                             alert('You have Selected ' + selectedData.oe1)
                         })
                     } else if (userData.year === '4') {
+                        if (i4 === "-1" || ii4 === "-1" || iii4 === "-1"){
+                                alert("Select a course! Don't Leave Empty")
+                                window.location.reload()
+                            }
                         const selectedData = {
                             oe1: i4,
                             oe2: ii4,

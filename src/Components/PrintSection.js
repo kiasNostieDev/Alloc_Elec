@@ -164,21 +164,49 @@ export default function PrintSection(props) {
         setIsLoading('0')
     }
 
+    function Header() {
+        if (sectionAndYear === "ta" || sectionAndYear === "tb" || sectionAndYear === "tc" || sectionAndYear === "td" || sectionAndYear === "te") {
+            return (
+                <TableRow>
+                    <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Name</TableCell>
+                    <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Register</TableCell>
+                    <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Open Elective 1</TableCell>
+                </TableRow>
+            )
+        } else if (sectionAndYear === "fa" || sectionAndYear === "fb" || sectionAndYear === "fc" || sectionAndYear === "fd" || sectionAndYear === "fe") {
+            return (
+                <TableRow>
+                    <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Name</TableCell>
+                    <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Register</TableCell>
+                    <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Open Elective 2 </TableCell>
+                    <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Professional Elective 2</TableCell>
+                    <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Professional Elective 3</TableCell>
+                </TableRow>
+            )
+        }
+    }
+
     function StudentList(props) {
         return (
             <div className='StudentList'>
                 <Table>
                 <TableContainer component={Paper}>
                     <TableHead>
-                        <TableRow>
-                            <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Name</TableCell>
-                            <TableCell style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Register</TableCell>
-                            <TableCell align='center' style={{fontFamily: 'Mulish', fontWeight: 'bolder'}}>Selected List</TableCell>
-                        </TableRow>
+                    <Header />        
                     </TableHead>{
                         props.item.map(stu => {
                             let selectedList = ""
-                            if (stu.year === '4') selectedList = stu.selection1 + ", " + stu.selection2 + ", " + stu.selection3
+                            if (stu.year === '4') {
+                                return (
+                                    <TableBody>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.name}</TableCell>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.register}</TableCell>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.selection1}</TableCell>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.selection2}</TableCell>
+                                        <TableCell style={{fontFamily: 'Mulish'}}>{stu.selection3}</TableCell>
+                                    </TableBody>
+                                )
+                            }// selectedList = stu.selection1 + ", " + stu.selection2 + ", " + stu.selection3
                             else selectedList = stu.selection
                             return (
                                 <TableBody>
@@ -232,6 +260,7 @@ export default function PrintSection(props) {
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{secyear}</Typography>
                         <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h5'>{"Students Added: " + tItem.length}</Typography>
                         <div className='TableData'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'Vth-Sem-OBT552 Basics of BioInformatics-Theory\' Prefered Count: " + tCount[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'Vth-Sem-OMD553 TeleHealth Technology-Theory\' Prefered Count: " + tCount[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'Vth-Sem-OEC552 - Soft Computing-Theory\' Prefered Count: " + tCount[2]}</Typography>
@@ -271,12 +300,15 @@ export default function PrintSection(props) {
                         <Typography style={{fontFamily: 'Mulish', textAlign: 'center'}} variant='h5'>{secyear}</Typography>
                         <Typography style={{ fontFamily: 'Mulish', textAlign: 'center' }} variant='h5'>{"Students Added: " + tItem.length}</Typography>
                         <div className='TableData'>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Open Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-OBM752 Hospital Management-Theory\' Prefered Count: " + tCount[0]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-OEC754 Medical Electronics-Theory\' Prefered Count: " + tCount[1]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-OIE751 Robotics-Theory\' Prefered Count: " + tCount[2]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 01</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-CS8081 Internet of Things-Theory\' Prefered Count: " + tCount[3]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-CS8091 Big Data Analytics-Theory\' Prefered Count: " + tCount[4]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-CS8092 Computer Graphics and Multimedia-Theory\' Prefered Count: " + tCount[5]}</Typography>
+                            <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '17pt', marginTop: '10px'}}>Professional Elective 02</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-CS8079 Human Computer Interaction-Theory\' Prefered Count: " + tCount[6]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-CS8083 Multi-Core Architectures and Programming-Theory\' Prefered Count: " + tCount[7]}</Typography>
                             <Typography style={{ fontFamily: 'Mulish', textAlign: 'center', fontSize: '12pt'}}>{"\'VII-CS8088 Wireless Adhoc and Sensor Networks-Theory\' Prefered Count: " + tCount[8]}</Typography>
